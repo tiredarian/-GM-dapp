@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZenChain GM DApp</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <h1>ZenChain GM DApp</h1>
+        <p>Say GM once every 24 hours and join the community wave!</p>
+
+        <button id="connectWalletBtn">Connect Wallet</button>
+        <button id="sendGMBtn" disabled>Send GM</button>
+
+        <div id="status" class="status-box">Wallet not connected</div>
+
+        <h2>Recent GMs</h2>
+        <ul id="gmList"></ul>
+
+        <p class="footer">Powered by ZenChain Testnet</p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/ethers@6.11.1/dist/ethers.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
