@@ -1,0 +1,67 @@
+body {
+    background-color: #f9fafb;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.app-container {
+    max-width: 500px;
+    margin: 50px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+h1 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+button {
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    margin: 10px 5px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.2s ease-in-out;
+}
+
+button:disabled {
+    background-color: #94a3b8;
+    cursor: not-allowed;
+}
+
+.status-box {
+    margin-top: 15px;
+    font-size: 0.95rem;
+    background: #e5e7eb;
+    padding: 10px;
+    border-radius: 6px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+}
+
+ul li {
+    background: #f3f4f6;
+    padding: 8px;
+    margin: 5px 0;
+    border-radius: 6px;
+    font-size: 0.9rem;
+}
+
+.footer {
+    font-size: 0.8rem;
+    color: #6b7280;
+    margin-top: 20px;
+}
