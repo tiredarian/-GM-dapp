@@ -19,7 +19,7 @@ const CONTRACT_ABI = [
 ];
 
 const ZENCHAIN_PARAMS = {
-    chainId: "0x20d8", // 8408 in hex
+    chainId: "8404", // 8408 in hex
     chainName: "ZenChain Testnet",
     nativeCurrency: {
         name: "ZenChain Testnet Coin",
@@ -27,7 +27,7 @@ const ZENCHAIN_PARAMS = {
         decimals: 18,
     },
     rpcUrls: ["https://zenchain-testnet.api.onfinality.io/public"],
-    blockExplorerUrls: [],
+    blockExplorerUrls: [https://zentrace.io/],
 };
 
 // ======== GLOBALS ========
