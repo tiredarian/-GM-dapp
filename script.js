@@ -1,5 +1,6 @@
+Arad, [9/23/2025 6:35 PM]
 // ======== CONFIG ========
-const CONTRACT_ADDRESS = "0xd9145CCE52D386f254917e481eB44e9943F39138";
+const CONTRACT_ADDRESS = "0xd9145CCE52D386f254917eB44e9943F39138";
 const CONTRACT_ABI = [
     {
         "anonymous": false,
@@ -19,7 +20,7 @@ const CONTRACT_ABI = [
 ];
 
 const ZENCHAIN_PARAMS = {
-    chainId: "8404", // 8408 in hex
+    chainId: "0x20d8", // 8408 in hex
     chainName: "ZenChain Testnet",
     nativeCurrency: {
         name: "ZenChain Testnet Coin",
@@ -27,7 +28,7 @@ const ZENCHAIN_PARAMS = {
         decimals: 18,
     },
     rpcUrls: ["https://zenchain-testnet.api.onfinality.io/public"],
-    blockExplorerUrls: [https://zentrace.io/],
+    blockExplorerUrls: ["https://zentrace.io"],
 };
 
 // ======== GLOBALS ========
@@ -40,24 +41,29 @@ async function connectWallet() {
         return;
     }
     try {
-        // Switch to ZenChain network if needed
+        console.log("Adding ZenChain Testnet...");
         await window.ethereum.request({
             method: "wallet_addEthereumChain",
             params: [ZENCHAIN_PARAMS]
         });
+        console.log("Network added successfully");
 
         provider = new ethers.BrowserProvider(window.ethereum);
+        console.log("Requesting accounts...");
         await provider.send("eth_requestAccounts", []);
         signer = await provider.getSigner();
-        contract = new ethers.Contract(CONTRACT_ADDRESS, CONTRACT_ABI, signer);
+        console.log("Signer obtained:", await signer.getAddress());
 
-        document.getElementById("status").innerText = `Wallet Connected: ${await signer.getAddress()}`;
+        contract = new ethers.Contract(CONTRACT_ADDRESS, CONTRACT_ABI, signer);
+        console.log("Contract initialized");
+
+        document.getElementById("status").innerText = Wallet Connected: ${await signer.getAddress()};
         document.getElementById("sendGMBtn").disabled = false;
 
         loadGMs();
     } catch (err) {
-        console.error(err);
-        document.getElementById("status").innerText = "Failed to connect wallet.";
+        console.error("Connect Wallet Error:", err);
+        document.getElementById("status").innerText = Failed to connect: ${err.code} - ${err.message};
     }
 }
 
@@ -69,8 +75,8 @@ async function sendGM() {
         document.getElementById("status").innerText = "GM sent successfully!";
         loadGMs();
     } catch (err) {
-        console.error(err);
-        document.getElementById("status").innerText = `Error: ${err.message}`;
+        console.error("Send GM Error:", err);
+        document.getElementById("status").innerText = Error: ${err.message};
     }
 }
 
@@ -80,9 +86,10 @@ async function loadGMs() {
         const gmList = document.getElementById("gmList");
         gmList.innerHTML = "";
 
-        recent.forEach((gm) => {
+Arad, [9/23/2025 6:35 PM]
+recent.forEach((gm) => {
             const li = document.createElement("li");
-            li.textContent = `${gm.sender} — ${new Date(Number(gm.timestamp) * 1000).toLocaleString()}`;
+            li.textContent = ${gm.sender} — ${new Date(Number(gm.timestamp) * 1000).toLocaleString()};
             gmList.appendChild(li);
         });
     } catch (err) {
